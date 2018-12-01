@@ -45,6 +45,9 @@
   </PropertyGroup>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
+    <Compile Include="JiraSender.fs" />
+    <Compile Include="GitCommits.fs" />
+    <Compile Include="Runner.fs" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
