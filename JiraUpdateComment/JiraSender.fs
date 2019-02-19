@@ -15,7 +15,7 @@ module JiraSender =
     
     let postComment(jiraUrl:string, token, issue, comment) = 
         System.Net.ServicePointManager.ServerCertificateValidationCallback <- (fun sender certificate chain sslPolicyErrors -> true)
-        ServicePointManager.SecurityProtocol <- SecurityProtocolType.Tls12//(SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3)
+        ServicePointManager.SecurityProtocol <- (SecurityProtocolType.Tls ||| SecurityProtocolType.Tls11 ||| SecurityProtocolType.Tls12 ||| SecurityProtocolType.Ssl3)
         let httpWebRequest = WebRequest.Create(url(jiraUrl, issue)) :?> HttpWebRequest
         httpWebRequest.Method <- "POST"
         httpWebRequest.ContentType <- "application/json"
